@@ -22,8 +22,8 @@ int main() {
     for (int i = 0; i < n; i++) {
         int r = target - nums[i];
         if (heap.count(r)) {
-            cout << "[" << heap[r] << ", " << i << "]";
-            break;
+          cout << "[" << heap[r] << ", " << i << "]\n";
+          break;
         }
         heap[nums[i]] = i;
     }
