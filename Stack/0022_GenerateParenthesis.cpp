@@ -12,12 +12,20 @@ using namespace std;
 class Solution
 {
  public:
+  vector<string> ans;
+
   vector<string> generateParenthesis(int n)
   {
-    stack<char> stk;
-    for (int i = 0; i < n; i++)
-    {
-    }
+    dfs(n, 0, 0, "");
+    return ans;
+  }
+
+  void dfs(int n, int left_count, int right_count, string seq)
+  {
+    if (left_count == n && right_count == n) ans.push_back(seq);
+
+    if (left_count < n) dfs(n, left_count + 1, right_count, seq + '(');
+    if (right_count < n && right_count < left_count) dfs(n, left_count, right_count + 1, seq + ')');
   }
 };
 // @lc code=end
